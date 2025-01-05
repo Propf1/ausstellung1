@@ -77,8 +77,9 @@ header {
 /* Pfeil vor dem "Künstler"-Text */
 .arrow {
     display: inline-block;
-    margin-right: 10px; /* Pfeil nach links verschieben */
-    transition: transform 0.3s ease; /* Animation für den Pfeil */
+    font-size: 20px; /* Größe des Pfeils */
+    margin-right: 10px; /* Abstand zum Text */
+    transition: transform 0.3s ease; /* Übergang für die Drehung */
 }
 
 /* Dropdown-Menü */
