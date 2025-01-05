@@ -1,0 +1,155 @@
+/* Grundlayout für das Menü */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(Hintergrund.jpg);
+    background-size: cover;
+    height: 99.3vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Höhe des Hamburger-Menüs */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Hamburger-Icon */
+.menu-icon {
+    font-size: 30px; /* Größe der Striche */
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    padding-left: 15px;
+    z-index: 1001; /* Über dem Menü platzieren */
+}
+
+/* Das Seitenmenü */
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Menü startet außerhalb des Bildschirms */
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    padding-top: 50px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    visibility: hidden; /* Menü ist zu Beginn unsichtbar */
+    opacity: 0; /* Menü ist zu Beginn unsichtbar */
+    transition: left 0.3s ease, opacity 0.3s ease, visibility 0s ease 0.3s;
+}
+
+/* Menü sichtbar, wenn die Klasse "open" hinzugefügt wird */
+.menu.open {
+    left: 0; /* Menü fährt nach rechts (sichtbar) */
+    visibility: visible; /* Menü wird sichtbar */
+    opacity: 1; /* Menü wird vollständig sichtbar */
+    transition: left 0.3s ease, opacity 0.3s ease; /* Nur die Eigenschaften, die wir ändern möchten */
+}
+
+/* Menü-Elemente */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.menu ul li {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Für Dropdown-Menü */
+.menu li.dropdown {
+    position: relative;
+}
+
+/* Pfeil vor dem "Künstler"-Text */
+.arrow {
+    display: inline-block;
+    margin-right: 10px; /* Pfeil nach links verschieben */
+    transition: transform 0.3s ease; /* Animation für den Pfeil */
+}
+
+/* Dropdown-Menü */
+.dropdown-menu {
+    display: none; /* Standardmäßig ausgeblendet */
+    position: relative;
+    background-color: #f9f9f900;
+    border: 1px solid #dddddd00;
+    width: 200px;
+}
+
+/* Das Dropdown-Menü sichtbar machen, wenn das Elternmenü die Klasse "open" hat */
+.dropdown.open .dropdown-menu {
+    display: block;
+}
+
+/* Wenn das Dropdown geöffnet ist, den Pfeil nach unten drehen */
+.dropdown.open .arrow {
+    transform: rotate(90deg); /* Pfeil nach unten drehen */
+}
+
+/* Links im Dropdown-Menü */
+.dropdown-menu li a {
+    padding: 1px;
+    display: block;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #55555500;
+}
+
+/* Links im Menü */
+.menu ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    display: block;
+    width: 100%;
+}
+
+.menu ul li a:hover {
+    background-color: #55555500;
+}
+
+/* Für Mobilgeräte */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Hamburger-Icon sichtbar machen */
+    }
+
+    .menu {
+        width: 100%;
+    }
+}
+
+/* Für größere Bildschirme */
+@media (min-width: 769px) {
+    .menu {
+        display: flex; /* Standardanzeige für größere Bildschirme */
+        max-height: none; /* Keine Höhenbegrenzung */
+        flex-direction: row; /* Elemente nebeneinander */
+        justify-content: center;
+    }
+
+    .menu ul li {
+        padding: 0 15px;
+    }
+}
+
+.ober-begriff {
+    font-size: 30px;
+} 
